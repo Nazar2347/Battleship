@@ -8,7 +8,7 @@ target_link_libraries(${PROJECT_NAME} PRIVATE ExternalLibrary
     PRIVATE Catch2::Catch2WithMain)
 
 target_include_directories(${PROJECT_NAME} PUBLIC . 
-    PRIVATE ${CMAKE_SOURCE_DIR}/external/Catch2)
+    PRIVATE ${CMAKE_SOURCE_DIR}/external/Catch2/src/catch2)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/external/Catch2/extras")
 include(CTest)

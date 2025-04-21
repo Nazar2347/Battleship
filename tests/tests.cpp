@@ -1,4 +1,5 @@
-#include <C:\Users\ndunas\source\repos\Battleship\external\Catch2\src\catch2\catch_test_macros.hpp>
+#include <catch_test_macros.hpp>
+
 #include <cstdint>
 
 
