@@ -1,4 +1,4 @@
-#pragma once 
+#pragma once
 
 struct Coordinate
 {
@@ -7,7 +7,7 @@ struct Coordinate
 
 	Coordinate(int x, int y) : x(x), y(y) {}
 
-	// Comparison operator for equality
+	// Comparison operator 
 	bool operator==(const Coordinate& other) const {
 		return x == other.x && y == other.y;
 	}
