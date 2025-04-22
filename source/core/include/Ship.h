@@ -2,6 +2,7 @@
 #include <iostream>
 #include <vector>
 
+
 enum class Orientation
 {
 	HORIZONTAL,
@@ -28,6 +29,7 @@ inline size_t getShipTypeSize(ShipType type)
 	case ShipType::LINKOR: return 4;
 		break;
 	default:
+		return 0;
 		break;
 	}
 }
@@ -41,15 +43,13 @@ private:
 	std::vector<bool> m_IsHull;
 protected:
 public:
-	Ship(ShipType type, std::pair<int, int> coordinates, Orientation orientation);
+	Ship(ShipType type, std::vector<std::pair<int,int>> coordinates, Orientation orientation);
 	virtual bool ISSunk()const;
 	size_t getSize()const;
 	std::vector<std::pair<int,int>>getPosition()const;
 	Orientation getOrientation()const;
 
 	void registerHit(std::pair<int, int> coorinates);
-	
-
-	virtual ~Ship();
+	virtual ~Ship() {};
 
 };
