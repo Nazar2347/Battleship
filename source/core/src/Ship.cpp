@@ -1,4 +1,5 @@
 #include "Ship.h"
+#include <string>
 
 using namespace std;
 
@@ -36,19 +37,14 @@ Orientation Ship::getOrientation()const
 }
 void Ship::registerHit(Coordinate coordinates)
 {
-	for (auto i : m_position)
+	for (size_t i =0; i<m_position.size();i++)
 	{
-		if (i.x == coordinates.x && i.y == coordinates.y)
+		if (m_position[i]==coordinates)
 		{
-			cout << "Recieved hit!";
-			/*Require to redifine logic!*/
-			for (auto i : m_IsHull)
-			{
-				if (i != 0)
-				{
-					i = 0;
-				}
-			}
+			/*Preferably add visual*/
+			m_IsHull[i] == true;
+			cout << "Hit registred on: (" << coordinates.x << "," << coordinates.y << "\n";
+			break;
 		}
 	}
 }
