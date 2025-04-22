@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <vector>
+#include "Coordinate.h"
 
 
 enum class Orientation
@@ -38,18 +39,18 @@ class Ship
 {
 private:
 	size_t m_size;
-	std::vector<std::pair<int, int >> m_position;
+	std::vector<Coordinate> m_position;
 	Orientation m_orientation;
 	std::vector<bool> m_IsHull;
 protected:
 public:
-	Ship(ShipType type, std::vector<std::pair<int,int>> coordinates, Orientation orientation);
+	Ship(ShipType type, std::vector<Coordinate>, Orientation orientation);
 	virtual bool ISSunk()const;
 	size_t getSize()const;
-	std::vector<std::pair<int,int>>getPosition()const;
+	std::vector<Coordinate>getPosition()const;
 	Orientation getOrientation()const;
 
-	void registerHit(std::pair<int, int> coorinates);
+	void registerHit(Coordinate coorinates);
 	virtual ~Ship() {};
 
 };

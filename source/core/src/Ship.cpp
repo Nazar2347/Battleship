@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Ship::Ship(ShipType type, vector<pair<int, int>> coordinates, Orientation orientation):
+Ship::Ship(ShipType type, vector<Coordinate> coordinates, Orientation orientation):
 	m_position(coordinates), m_orientation(orientation)
 {
 	m_size = getShipTypeSize(type);
@@ -26,7 +26,7 @@ size_t Ship::getSize() const
 	return m_size;
 }
 
-vector<pair<int, int>> Ship::getPosition() const
+vector<Coordinate> Ship::getPosition() const
 {
 	return m_position;
 }
@@ -34,11 +34,11 @@ Orientation Ship::getOrientation()const
 {
 	return m_orientation;
 }
-void Ship::registerHit(pair<int, int> coordinates)
+void Ship::registerHit(Coordinate coordinates)
 {
 	for (auto i : m_position)
 	{
-		if (i.first == coordinates.first && i.second == coordinates.second)
+		if (i.x == coordinates.x && i.y == coordinates.y)
 		{
 			cout << "Recieved hit!";
 			/*Require to redifine logic!*/
