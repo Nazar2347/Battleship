@@ -17,9 +17,12 @@ public:
 	bool AtackOnEnemyBoard(const Coordinate target);
 	bool hasLost()const;
 
+	virtual void placeShips() = 0;
+	virtual Coordinate getNextMove() = 0;
+
 	const Board& getBoard()const;
 	std::string getName()const;
-
+	
 	Board& getBoard();
 
 	virtual ~Player();

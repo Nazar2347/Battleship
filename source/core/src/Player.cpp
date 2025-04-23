@@ -36,3 +36,7 @@ Board& Player::getBoard()
 {
 	return m_board;
 }
+Player::~Player()
+{
+
+}
