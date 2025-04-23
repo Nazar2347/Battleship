@@ -3,10 +3,26 @@
 
 using namespace std;
 
-Ship::Ship(ShipType type, vector<Coordinate> coordinates, Orientation orientation):
-	m_position(coordinates), m_orientation(orientation)
+Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
+	 m_orientation(orientation)
 {
 	m_size = getShipTypeSize(type);
+	m_position.resize(m_size);
+
+	if (m_orientation == Orientation::HORIZONTAL)
+	{
+		for (int xPos = 0; xPos < m_size;xPos++)
+		{
+			m_position[xPos] = { placePosittion.x + xPos,placePosittion.y };
+		}
+	}
+	else // Orientation::VERTICAL
+	{
+		for (int yPos = 0; yPos < m_size;yPos++)
+		{
+			m_position[yPos] = { placePosittion.x,placePosittion.y+yPos };
+		}
+	}
 
 }
 
@@ -42,7 +58,7 @@ void Ship::registerHit(Coordinate coordinates)
 		if (m_position[i]==coordinates)
 		{
 			/*Preferably add visual*/
-			m_IsHull[i] == true;
+			m_IsHull[i] = true;
 			cout << "Hit registred on: (" << coordinates.x << "," << coordinates.y << "\n";
 			break;
 		}

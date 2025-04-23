@@ -44,7 +44,7 @@ private:
 	std::vector<bool> m_IsHull;
 protected:
 public:
-	Ship(ShipType type, std::vector<Coordinate>, Orientation orientation);
+	Ship(ShipType type, Coordinate placePosition, Orientation orientation);
 	virtual bool ISSunk()const;
 	size_t getSize()const;
 	std::vector<Coordinate>getPosition()const;
