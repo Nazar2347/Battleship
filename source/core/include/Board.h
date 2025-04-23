@@ -36,6 +36,7 @@ public:
 
 	const std::vector<Ship>& getShips() const;
 	bool allShipsSunk() const;
+	CellState getCellState(Coordinate coordinates);
 
 
 };
