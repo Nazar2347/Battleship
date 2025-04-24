@@ -8,7 +8,7 @@ Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
 {
 	m_size = getShipTypeSize(type);
 	m_position.reserve(m_size);
-	m_IsHull.reserve(m_size, false);
+	m_IsHull.resize(m_size, false);
 
 	if (m_orientation == Orientation::HORIZONTAL)
 	{
