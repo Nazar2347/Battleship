@@ -1,7 +1,8 @@
 #include "Board.h"
 using namespace std;
 
-Board::Board():m_grid(BOARD_SIZE, std::vector<CellState>(BOARD_SIZE, CellState::EMPTY))
+Board::Board():
+    m_grid(GameRules::BOARD_SIZE, std::vector<CellState>(GameRules::BOARD_SIZE, CellState::EMPTY)) //initialized matrix
 {
 	cout << "Board initialized!\n";
 }
@@ -10,7 +11,7 @@ bool Board::isValidPlacement(const Ship& ship) const
 {
     for (auto& coord : ship.getPosition()) {
         //Cheking if ship placement is in grid area
-        if (coord.x < 0 || coord.x >= BOARD_SIZE || coord.y < 0 || coord.y >= BOARD_SIZE)
+        if (coord.x < 0 || coord.x >= GameRules::BOARD_SIZE || coord.y < 0 || coord.y >= GameRules::BOARD_SIZE)
             return false; 
         //Cheking if ship placement cell is Empty
         if (m_grid[coord.x][coord.y] != CellState::EMPTY)

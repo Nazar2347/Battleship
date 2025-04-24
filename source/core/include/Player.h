@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "Coordinate.h"
 #include "Ship.h"
+#include "GameRules.h"
 
 
 class Player

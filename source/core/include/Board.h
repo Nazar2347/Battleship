@@ -3,6 +3,7 @@
 #include <vector>
 #include "Ship.h"
 #include "Coordinate.h"
+#include "GameRules.h"
 enum class CellState
 {
 	EMPTY,
@@ -21,7 +22,7 @@ private:
 	std::vector<Ship> m_ships;
 
 public:
-	static const int BOARD_SIZE = 10;
+
 
 	Board();
 
