@@ -76,7 +76,7 @@ void AIPlayer::placeShips()
 			}
 		}
 	}
-	for (int linkors = 1; linkors > 0; linkors)
+	for (int linkors = 1; linkors > 0; linkors--)
 	{
 		bool isPlaced = false;
 		while (!isPlaced)
