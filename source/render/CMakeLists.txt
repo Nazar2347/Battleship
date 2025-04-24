@@ -1,8 +1,11 @@
 project (RenderLibrary)
 
+file (GLOB_RECURSE RENDER_HEADERS CONFIGURE_DEPENDS "./include/*.h")
+file (GLOB_RECURSE RENDER_SOURCE CONFIGURE_DEPENDS "./src/*.cpp")
+
 add_library (${PROJECT_NAME} 
-	./include/render.h
-	./src/render.cpp
+	${RENDER_HEADERS}
+	${RENDER_SOURCE}
 )
 
 target_include_directories (${PROJECT_NAME} 
