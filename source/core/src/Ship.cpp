@@ -7,21 +7,20 @@ Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
 	 m_orientation(orientation)
 {
 	m_size = getShipTypeSize(type);
-	m_position.reserve(m_size);
 	m_IsHull.resize(m_size, false);
-
+	m_position.clear();
 	if (m_orientation == Orientation::HORIZONTAL)
 	{
 		for (int xPos = 0; xPos < m_size;xPos++)
 		{
-			m_position[xPos] = { placePosittion.x + xPos,placePosittion.y };
+			m_position.emplace_back( placePosittion.x + xPos, placePosittion.y );
 		}
 	}
 	else // Orientation::VERTICAL
 	{
 		for (int yPos = 0; yPos < m_size;yPos++)
 		{
-			m_position[yPos] = { placePosittion.x,placePosittion.y+yPos };
+			m_position.emplace_back ( placePosittion.x, placePosittion.y+yPos );
 		}
 	}
 
