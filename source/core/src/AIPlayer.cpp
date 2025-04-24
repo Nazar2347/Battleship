@@ -36,7 +36,7 @@ void AIPlayer::placeShips()
 		while (!isPlaced)
 		{
 
-			Ship frigate(ShipType::FRIGATE, generateRandomCoordinate(), horizontalOrVertical());
+			Ship frigate(ShipType::FRIGATE, generateRandomCoordinate(), horizontalOrVertical());			
 			if (m_board.isValidPlacement(frigate))
 			{
 				m_ships.push_back(frigate);
@@ -82,7 +82,7 @@ void AIPlayer::placeShips()
 		while (!isPlaced)
 		{
 
-			Ship linkor(ShipType::CRUISER, generateRandomCoordinate(), horizontalOrVertical());
+			Ship linkor(ShipType::LINKOR, generateRandomCoordinate(), horizontalOrVertical());
 			if (m_board.isValidPlacement(linkor))
 			{
 				m_ships.push_back(linkor);
