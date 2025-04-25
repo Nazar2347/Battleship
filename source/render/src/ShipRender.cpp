@@ -8,37 +8,39 @@ void ShipRender::DrawShips(const std::vector<Ship>& ships)
    
     for (const auto& ship : ships)
     {
-        ship.getSize();
-        auto x = DARKGRAY;
-        switch (ship.getSize())
-        {
-        case 1: 
-            x = LIGHTGRAY;
-            break;
-        case 2:
-            x = DARKBLUE;
-            break;
-        case 3:
-            x = DARKGREEN;
-            break;
-        case 4:
-            x = DARKPURPLE;
-        default:
-            x = BLACK;
-            break;
-        }
-
-
+     
         for (const Coordinate& coord : ship.getPosition())
         {
             
             DrawRectangle(
-                BOARD_OFFSET_X + coord.x * CELL_SIZE,
-                BOARD_OFFSET_Y + coord.y * CELL_SIZE,
+                GRID_OFFSET_X + coord.x * CELL_SIZE,
+                GRID_OFFSET_Y + coord.y * CELL_SIZE,
                 CELL_SIZE,
                 CELL_SIZE,
-                x
+                getShipTypeColor(ship.getShipType())
             );
         }
+    }
+}
+
+void ShipRender::drawGhostShip(const Ship& ship, Color color)
+{
+    using namespace VisualConfig;
+
+    for (const Coordinate& c : ship.getPosition()) {
+        DrawRectangle(
+            GRID_OFFSET_X + c.x * CELL_SIZE,
+            GRID_OFFSET_Y + c.y * CELL_SIZE,
+            CELL_SIZE,
+            CELL_SIZE,
+            Fade(color, 0.5f)
+        );
+        DrawRectangleLines(
+            GRID_OFFSET_X + c.x * CELL_SIZE,
+            GRID_OFFSET_Y + c.y * CELL_SIZE,
+            CELL_SIZE,
+            CELL_SIZE,
+            BLACK
+        );
     }
 }
