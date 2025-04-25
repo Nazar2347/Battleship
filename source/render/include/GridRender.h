@@ -4,5 +4,6 @@
 class GridRender
 {
 public:
-	void drawGrid();
+	void drawPlayerGrid();
+	void drawEnemyGrid();
 };

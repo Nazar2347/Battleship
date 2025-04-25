@@ -7,5 +7,5 @@ namespace VisualConfig
 	inline constexpr int GRID_OFFSET_Y = 100;
 	inline constexpr int GRID_LINE_THICKNESS = 2;
 	inline constexpr int GRID_LINE_COLOR = 0xAAAAAAFF; // gray
-	inline constexpr int ENEMY_GRID_GAP = 500; //100px gap
+	inline constexpr int ENEMY_GRID_GAP = 500; //100px gap between boards
 }
