@@ -4,7 +4,7 @@
 using namespace std;
 
 Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
-	 m_orientation(orientation)
+	 m_orientation(orientation),m_shipType(type)
 {
 	m_size = getShipTypeSize(type);
 	m_IsHull.resize(m_size, false);
@@ -50,6 +50,10 @@ vector<Coordinate> Ship::getPosition() const
 Orientation Ship::getOrientation()const
 {
 	return m_orientation;
+}
+ShipType Ship::getShipType()const
+{
+	return m_shipType;
 }
 void Ship::registerHit(Coordinate coordinates)
 {

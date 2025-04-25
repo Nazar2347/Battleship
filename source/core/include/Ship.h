@@ -42,6 +42,7 @@ private:
 	std::vector<Coordinate> m_position;
 	Orientation m_orientation;
 	std::vector<bool> m_IsHull;
+	ShipType m_shipType;
 protected:
 public:
 	Ship(ShipType type, Coordinate placePosition, Orientation orientation);
@@ -49,6 +50,7 @@ public:
 	size_t getSize()const;
 	std::vector<Coordinate>getPosition()const;
 	Orientation getOrientation()const;
+	ShipType getShipType()const;
 
 	void registerHit(Coordinate coorinates);
 	virtual ~Ship() {};
