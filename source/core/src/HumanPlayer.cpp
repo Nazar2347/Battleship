@@ -8,13 +8,60 @@ HumanPlayer::HumanPlayer(string name) :
 
 void HumanPlayer::placeShips()
 {
-	m_ships.push_back(Ship(ShipType::FRIGATE, { 5,5 }, Orientation::HORIZONTAL));
-	m_ships.push_back(Ship(ShipType::FRIGATE, { 1,2 }, Orientation::HORIZONTAL));
-	/*Consider to transfer creation logic later*/
+	using namespace VisualConfig;
+	m_ships.clear();
+	
+	Orientation currentOrientation = Orientation::HORIZONTAL;
 
-	for (auto i : m_ships)
+	size_t shipIndex = 0;
+	GridRender tempBoard;
+	ShipRender ghostShip;
+	ShipRender placedShips;
+
+	while (shipIndex < GameRules::shipsToPlace.size() && !WindowShouldClose())
 	{
-		m_board.placeShip(i);
+		BeginDrawing();
+		ClearBackground(RAYWHITE);
+
+		tempBoard.drawPlayerGrid();
+		
+
+		Vector2 mouse = GetMousePosition();
+		int x = static_cast<int>((mouse.x - GRID_OFFSET_X) / CELL_SIZE);
+		int y = static_cast<int>((mouse.y - GRID_OFFSET_Y) / CELL_SIZE);
+
+		if (x >= 0 && x < GameRules::BOARD_SIZE && y >= 0 && y < GameRules::BOARD_SIZE)
+		{
+			Coordinate coord = { x,y };
+
+			Ship previewShip(GameRules::shipsToPlace[shipIndex], coord, currentOrientation);
+			//Showing ghost ship
+			if (m_board.isValidPlacement(previewShip))
+			{
+				ghostShip.drawGhostShip(previewShip, GREEN);
+			}
+			else
+			{
+				ghostShip.drawGhostShip(previewShip, RED);
+			}
+
+
+			//Rotate
+			if (IsMouseButtonReleased(MOUSE_RIGHT_BUTTON))
+			{
+				currentOrientation = (currentOrientation == Orientation::HORIZONTAL) ?
+					Orientation::VERTICAL : Orientation::HORIZONTAL;
+			}
+			//Place
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && m_board.isValidPlacement(previewShip))
+			{
+				m_ships.push_back(previewShip);
+				m_board.placeShip(previewShip);
+				shipIndex++;
+			}
+			placedShips.DrawShips(m_board.getShips());
+		}
+		EndDrawing();
 	}
 }
 Coordinate HumanPlayer::getNextMove()
