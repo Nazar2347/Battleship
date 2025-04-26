@@ -74,7 +74,7 @@ bool Board::IsAlreadyAttacked(const Coordinate coordinates)
 
 void Board::markHit(const Coordinate cooridnates)
 {
-    m_grid[cooridnates.x][cooridnates.y] == CellState::HIT;
+    m_grid[cooridnates.x][cooridnates.y] = CellState::HIT;
 
     for (auto ship : m_ships)
     {
