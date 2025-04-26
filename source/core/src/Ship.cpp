@@ -1,13 +1,13 @@
 #include "Ship.h"
 #include <string>
-
+#define DEBUG
 using namespace std;
 
 Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
 	 m_orientation(orientation),m_shipType(type)
 {
 	m_size = getShipTypeSize(type);
-	m_IsHull.resize(m_size, false);
+	m_IsHull.resize(m_size, true);
 	m_position.clear();
 	if (m_orientation == Orientation::HORIZONTAL)
 	{
@@ -29,14 +29,18 @@ Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
 bool Ship::ISSunk()const
 {
 	int count = m_size;
-	for (auto i : m_IsHull)
+	for (auto part : m_IsHull)
 	{
-		if (i == 0) count--;
-	}
-	if (count == 0) 
-		return true;
-	else 
-		return false;
+		if (part == true)
+		{
+			return false;
+		}
+	} 
+#ifdef DEBUG
+	cout << "Ship destroyed!\n";
+#endif // DEBUG
+
+	return true;
 }
 size_t Ship::getSize() const
 {
@@ -62,8 +66,12 @@ void Ship::registerHit(Coordinate coordinates)
 		if (m_position[i]==coordinates)
 		{
 			/*Preferably add visual*/
-			m_IsHull[i] = true;
-			cout << "Hit registred on: (" << coordinates.x << "," << coordinates.y << "\n";
+			m_IsHull[i] = false;
+          #ifdef DEBUG
+			cout << "Hit registred on: (" << coordinates.x << "," << coordinates.y << ")\n";
+          #endif // DEBUG
+
+			
 			break;
 		}
 	}
