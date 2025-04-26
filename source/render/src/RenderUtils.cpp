@@ -33,8 +33,8 @@ void DrawHitMark(const Coordinate& coord, Vector2 boardOrigin)
     float centerY = cellPos.y + CELL_SIZE / 2;
     float offset = CELL_SIZE / 4;
 
-    DrawLine(centerX - offset, centerY - offset, centerX + offset, centerY + offset, RED);
-    DrawLine(centerX - offset, centerY + offset, centerX + offset, centerY - offset, RED);
+    DrawLine(centerX - offset, centerY - offset, centerX + offset, centerY + offset, BLACK);
+    DrawLine(centerX - offset, centerY + offset, centerX + offset, centerY - offset, BLACK);
 }
 
 void DrawMissMark(const Coordinate& coord, Vector2 boardOrigin)
@@ -49,4 +49,21 @@ void DrawMissMark(const Coordinate& coord, Vector2 boardOrigin)
     float centerY = cellPos.y + CELL_SIZE / 2;
 
     DrawCircle(centerX, centerY, CELL_SIZE / 6, BLUE);
+}
+void DrawWinMessage()
+{
+    DrawText("YOU WIN!", 300, 300, 40, GREEN);
+ }
+void DrawLoseMessage()
+{
+    DrawText("YOU LOSE!", 300, 300, 40, RED);
+}
+void DrawInitializationMessage()
+{
+    DrawText("Place your ships!", 125, 50, 40, BLUE);
+   
+}
+void DrawFightMessage()
+{
+    DrawText("Fight!", 500, 50, 40, RED);
 }
