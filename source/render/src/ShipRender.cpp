@@ -23,6 +23,27 @@ void ShipRender::DrawShips(const std::vector<Ship>& ships)
     }
 }
 
+void ShipRender::DrawEnemyShips(const std::vector<Ship>& ships)
+{
+    using namespace VisualConfig;
+
+    for (const auto& ship : ships)
+    {
+
+        for (const Coordinate& coord : ship.getPosition())
+        {
+
+            DrawRectangle(
+                ENEMY_GRID_OFFSET_X + coord.x * CELL_SIZE,
+                ENEMY_GRID_OFFSET_Y + coord.y * CELL_SIZE,
+                CELL_SIZE,
+                CELL_SIZE,
+                getShipTypeColor(ship.getShipType())
+            );
+        }
+    }
+}
+
 void ShipRender::drawGhostShip(const Ship& ship, Color color)
 {
     using namespace VisualConfig;
