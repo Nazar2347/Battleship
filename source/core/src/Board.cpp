@@ -36,16 +36,24 @@ bool Board::placeShip(const Ship& ship)
 
 bool Board::recieveAttack(const Coordinate coordinates)
 {
-    if (m_grid[coordinates.x][coordinates.y] == CellState::SHIP)
+    if (coordinates.x  >=0 && coordinates.y >=0 &&
+        coordinates.x <= GameRules::BOARD_SIZE && coordinates.y <= GameRules::BOARD_SIZE)
     {
-        markHit(coordinates);
-        return true;
+        #ifdef DEBUG
+        cout << "Shoot on [ " << coordinates.x << " " << coordinates.y << "] \n";
+        #endif // DEBUG
+            if (m_grid[coordinates.x][coordinates.y] == CellState::SHIP)
+            {
+                markHit(coordinates);
+                return true;
+            }
+            else
+            {
+                markMiss(coordinates);
+                return false;
+            }
     }
-    else
-    {
-        markMiss(coordinates);
-        return false;
-    }
+    return false;
 }
 
 bool Board::IsAlreadyAttacked(const Coordinate coordinates)
