@@ -65,6 +65,23 @@ void HumanPlayer::placeShips()
 }
 Coordinate HumanPlayer::getNextMove()
 {
-	/*Implment RayLib input*/
-	return { 0,0 };
+	using namespace VisualConfig;
+	if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON))
+	{
+		Vector2 mousePos = GetMousePosition();
+
+		if (isMouseOverEnemyBoard(mousePos))
+		{
+
+			int cellX = static_cast<int>((mousePos.x - (ENEMY_GRID_OFFSET_X)) / CELL_SIZE);
+			int cellY = static_cast<int>((mousePos.y - ENEMY_GRID_OFFSET_Y) / CELL_SIZE);
+
+			if (cellX >= 0 && cellX < 10 && cellY >= 0 && cellY < 10)
+			{
+				return Coordinate{ cellX, cellY };
+			}
+		}
+	}
+
+	return { -1,-1 };
 }
