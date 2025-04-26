@@ -24,14 +24,14 @@ void HumanPlayer::placeShips()
 		ClearBackground(RAYWHITE);
 
 		tempBoard.drawPlayerGrid();
-		
+		placedShips.DrawShips(m_board.getShips());
 
 		Vector2 mouse = GetMousePosition();
+
+		if (isMouseOverPlayerBoard(mouse))
+		{
 		int x = static_cast<int>((mouse.x - GRID_OFFSET_X) / CELL_SIZE);
 		int y = static_cast<int>((mouse.y - GRID_OFFSET_Y) / CELL_SIZE);
-
-		if (x >= 0 && x < GameRules::BOARD_SIZE && y >= 0 && y < GameRules::BOARD_SIZE)
-		{
 			Coordinate coord = { x,y };
 
 			Ship previewShip(GameRules::shipsToPlace[shipIndex], coord, currentOrientation);
@@ -59,7 +59,6 @@ void HumanPlayer::placeShips()
 				m_board.placeShip(previewShip);
 				shipIndex++;
 			}
-			placedShips.DrawShips(m_board.getShips());
 		}
 		EndDrawing();
 	}
