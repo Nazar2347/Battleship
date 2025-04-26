@@ -26,4 +26,6 @@ class ShipRender
 public:
     void DrawShips(const std::vector<Ship>& ships);
     void drawGhostShip(const Ship& ship, Color color);
+	void DrawEnemyShips(const std::vector<Ship>& ships);
+   
 };
