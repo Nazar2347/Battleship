@@ -1,6 +1,7 @@
 #pragma once 
 #include "Ship.h"
 #include <raylib.h>
+#include "RenderUtils.h"
 
 inline Color getShipTypeColor(ShipType shipType)
 {

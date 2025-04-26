@@ -4,6 +4,7 @@
 #include "Ship.h"
 #include "Coordinate.h"
 #include "GameRules.h"
+#include "RenderUtils.h"
 enum class CellState
 {
 	EMPTY,
