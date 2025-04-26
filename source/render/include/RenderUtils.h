@@ -5,3 +5,6 @@
 
 bool isMouseOverEnemyBoard(Vector2 mousePos);
 bool isMouseOverPlayerBoard(Vector2 mousePos);
+
+void DrawHitMark(const Coordinate& coord, Vector2 boardOrigin);
+void DrawMissMark(const Coordinate& coord, Vector2 boardOrigin);
