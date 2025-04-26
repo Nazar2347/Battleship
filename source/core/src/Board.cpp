@@ -37,7 +37,7 @@ bool Board::placeShip(const Ship& ship)
 bool Board::recieveAttack(const Coordinate coordinates)
 {
     if (coordinates.x  >=0 && coordinates.y >=0 &&
-        coordinates.x <= GameRules::BOARD_SIZE && coordinates.y <= GameRules::BOARD_SIZE)
+        coordinates.x < GameRules::BOARD_SIZE && coordinates.y < GameRules::BOARD_SIZE)
     {
         #ifdef DEBUG
         cout << "Shoot on [ " << coordinates.x << " " << coordinates.y << "] \n";
@@ -47,7 +47,7 @@ bool Board::recieveAttack(const Coordinate coordinates)
                 markHit(coordinates);
                 return true;
             }
-            else
+            else 
             {
                 markMiss(coordinates);
                 return false;
@@ -76,16 +76,17 @@ void Board::markHit(const Coordinate cooridnates)
 {
     m_grid[cooridnates.x][cooridnates.y] = CellState::HIT;
 
-    for (auto ship : m_ships)
+    for (auto& ship : m_ships)
     {
         for (auto i : ship.getPosition())
         {
             if (i == cooridnates)
             {
                 ship.registerHit(cooridnates);
+                ship.ISSunk();
                 return;
             }
-    
+
         }
     }
 }
@@ -96,12 +97,17 @@ void Board::markMiss(const Coordinate cordinates)
 }
 
 
-bool Board::allShipsSunk() const {
+bool Board::allShipsSunk() const 
+{
     for (const auto& ship : m_ships) 
     {
         if (!ship.ISSunk())
             return false;
     }
+#ifdef DEBUG
+    cout << "All ships are sunked!\n";
+#endif // DEBUG
+
     return true;
 }
 
