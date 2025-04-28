@@ -36,10 +36,8 @@ void AIPlayer::placeShips()
 		{
 
 			Ship AIShip(ship, generateRandomCoordinate(), horizontalOrVertical());			
-			if (m_board.isValidPlacement(AIShip))
+			if (tryPlaceShip(AIShip))
 			{
-				m_ships.push_back(AIShip);
-				m_board.placeShip(AIShip);
 				isPlaced = true;
 			}
 		}

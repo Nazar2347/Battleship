@@ -19,9 +19,6 @@ class Game
 private:
 	HumanPlayer m_player;
 	AIPlayer m_aiPlayer;
-
-	
-
 	GameState m_currentState;
 
 public:

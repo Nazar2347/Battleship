@@ -54,10 +54,8 @@ void HumanPlayer::placeShips()
 					Orientation::VERTICAL : Orientation::HORIZONTAL;
 			}
 			//Place
-			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && m_board.isValidPlacement(previewShip))
+			if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON) && tryPlaceShip(previewShip))
 			{
-				m_ships.push_back(previewShip);
-				m_board.placeShip(previewShip);
 				shipIndex++;
 			}
 		}

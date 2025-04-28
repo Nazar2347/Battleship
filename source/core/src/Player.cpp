@@ -31,6 +31,16 @@ string Player::getName()const
 {
 	return m_name;
 }
+bool Player::tryPlaceShip(const Ship& ship)
+{
+	if (m_board.isValidPlacement(ship))
+	{
+		m_ships.push_back(ship);
+		m_board.placeShip(ship);
+		return true;
+	}
+	return false;
+}
 
 Board& Player::getBoard()
 {

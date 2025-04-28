@@ -17,6 +17,7 @@ public:
 
 	bool AtackOnEnemyBoard(const Coordinate target);
 	bool hasLost()const;
+	bool tryPlaceShip(const Ship& ship);
 
 	virtual void placeShips() = 0;
 	virtual Coordinate getNextMove() = 0;
