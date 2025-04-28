@@ -1,11 +1,18 @@
 project (UnitTests)
 
-add_executable(${PROJECT_NAME} ./tests.cpp)
+
+file (GLOB_RECURSE TEST_SOURCES *.cpp)
+
+add_executable(${PROJECT_NAME} ${TEST_SOURCES})
+
 
 
 #connect Catch2 and raylib library
 target_link_libraries(${PROJECT_NAME} PRIVATE ExternalLibrary
-    PRIVATE Catch2::Catch2WithMain)
+    PRIVATE Catch2::Catch2WithMain
+    PRIVATE CoreLibrary
+)
+
 
 target_include_directories(${PROJECT_NAME} PUBLIC . 
     PRIVATE ${CMAKE_SOURCE_DIR}/external/Catch2/src/catch2)
