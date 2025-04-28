@@ -1,4 +1,4 @@
-#include <catch_test_macros.hpp>
+﻿#include <catch_test_macros.hpp>
 
 #include <cstdint>
 
