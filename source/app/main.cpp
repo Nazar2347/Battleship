@@ -27,37 +27,57 @@
 ********************************************************************************************/
 
 #include "raylib.h"
+#include "GameRules.h"
+#include "GridRender.h"
+#include "ShipRender.h"
+#include "Board.h"
+#include "Ship.h"
+#include "AIPlayer.h"
+#include "HumanPlayer.h"
+#include "VisualConfigs.h"
+#include "Game.h"
 
-//------------------------------------------------------------------------------------
-// Program main entry point
-//------------------------------------------------------------------------------------
 int main(void)
 {
     // Initialization
     //--------------------------------------------------------------------------------------
-    const int screenWidth = 800;
-    const int screenHeight = 450;
+    const int screenWidth = 1200;
+    const int screenHeight = 550;
+    using namespace VisualConfig;
 
     InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    SetTargetFPS(60);               
 
-    SetTargetFPS(60);               // Set our game to run at 60 frames-per-second
+    Game game1;
+    GridRender board;
+    ShipRender vivisbleShips;
     //--------------------------------------------------------------------------------------
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
-        // Update
-        //----------------------------------------------------------------------------------
-        // TODO: Update your variables here
-        //----------------------------------------------------------------------------------
-
+        DrawFightMessage();
+     
+        
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
-
         ClearBackground(RAYWHITE);
+        board.drawPlayerGrid();
+        board.drawEnemyGrid();
+        game1.Update();
+       
+        vivisbleShips.DrawShips(game1.getPlayerBoard().getShips());
+        vivisbleShips.DrawDestroyedShips(game1.getPlayerBoard(), game1.getEnemyBoard()); //Draw  Destroyed ships 
+ 
+        board.displayEnemyCellStates(game1.getAIPLayer().getBoard());
+        board.displayPlayerCellStates(game1.getPlayer().getBoard());
 
-        DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+       
+        
+        
+       
+    
 
         EndDrawing();
         //----------------------------------------------------------------------------------
