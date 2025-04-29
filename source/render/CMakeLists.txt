@@ -1,4 +1,5 @@
 project (RenderLibrary)
+include(FetchContent)
 
 file (GLOB_RECURSE RENDER_HEADERS CONFIGURE_DEPENDS "./include/*.h")
 file (GLOB_RECURSE RENDER_SOURCE CONFIGURE_DEPENDS "./src/*.cpp")
