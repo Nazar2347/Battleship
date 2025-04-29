@@ -38,6 +38,8 @@ inline size_t getShipTypeSize(ShipType type)
 class Ship
 {
 private:
+	static int s_nextID;
+	int m_ID;
 	size_t m_size;
 	std::vector<Coordinate> m_position;
 	Orientation m_orientation;
@@ -48,6 +50,7 @@ public:
 	Ship(ShipType type, Coordinate placePosition, Orientation orientation);
 	virtual bool ISSunk()const;
 	size_t getSize()const;
+	int getID()const;
 	std::vector<Coordinate>getPosition()const;
 	Orientation getOrientation()const;
 	ShipType getShipType()const;

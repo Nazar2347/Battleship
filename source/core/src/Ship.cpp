@@ -3,12 +3,16 @@
 #define DEBUG
 using namespace std;
 
+ int Ship::s_nextID = 0;
+
 Ship::Ship(ShipType type, Coordinate placePosittion, Orientation orientation):
 	 m_orientation(orientation),m_shipType(type)
 {
+	m_ID = s_nextID++; 
 	m_size = getShipTypeSize(type);
 	m_IsHull.resize(m_size, true);
 	m_position.clear();
+
 	if (m_orientation == Orientation::HORIZONTAL)
 	{
 		for (int xPos = 0; xPos < m_size;xPos++)
@@ -39,12 +43,16 @@ bool Ship::ISSunk()const
 #ifdef DEBUG
 	cout << "Ship destroyed!\n";
 #endif // DEBUG
-
+	
 	return true;
 }
 size_t Ship::getSize() const
 {
 	return m_size;
+}
+int Ship::getID()const
+{
+	return m_ID;
 }
 
 vector<Coordinate> Ship::getPosition() const
