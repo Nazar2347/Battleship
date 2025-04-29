@@ -83,8 +83,11 @@ void Board::markHit(const Coordinate cooridnates)
             if (i == cooridnates)
             {
                 ship.registerHit(cooridnates);
-                ship.ISSunk();
-                return;
+                if (ship.ISSunk())
+                {
+                    m_destroyed_shipsID.emplace(ship.getID(), ship);
+                    return;
+                }
             }
 
         }
@@ -99,10 +102,9 @@ void Board::markMiss(const Coordinate cordinates)
 
 bool Board::allShipsSunk() const 
 {
-    for (const auto& ship : m_ships) 
+    if (m_destroyed_shipsID.size() != GameRules::shipsToPlace.size())
     {
-        if (!ship.ISSunk())
-            return false;
+        return false;
     }
 #ifdef DEBUG
     cout << "All ships are sunked!\n";
@@ -118,4 +120,9 @@ const vector<Ship>& Board::getShips()const
 CellState Board::getCellState(Coordinate coordinates)
 {
     return m_grid[coordinates.x][coordinates.y];
+}
+
+unordered_map<int,Ship> Board::getDestroyedShips()const 
+{
+    return m_destroyed_shipsID;
 }
