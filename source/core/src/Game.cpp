@@ -38,11 +38,14 @@ bool Game::Update()
 	{
 	case GameState::INITIALIZATION:
 		DrawInitializationMessage();
+		DrawChangeOrientationMessage();
 		break;
 	case GameState::PLAYER_TURN:
+		DrawFightMessage();
 		ProcessPlayerTurn();
 		break;
 	case GameState::AI_TURN:
+		DrawFightMessage();
 		ProcessAITurn();
 		break;
 	case GameState::PLAYER_WIN:

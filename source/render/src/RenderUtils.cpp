@@ -52,11 +52,11 @@ void DrawMissMark(const Coordinate& coord, Vector2 boardOrigin)
 }
 void DrawWinMessage()
 {
-    DrawText("YOU WIN!", 300, 300, 40, GREEN);
+    DrawText("YOU WIN!", 450, 30, 40, GREEN);
  }
 void DrawLoseMessage()
 {
-    DrawText("YOU LOSE!", 300, 300, 40, RED);
+    DrawText("YOU LOSE!", 450, 30, 40, RED);
 }
 void DrawInitializationMessage()
 {
@@ -66,4 +66,9 @@ void DrawInitializationMessage()
 void DrawFightMessage()
 {
     DrawText("Fight!", 500, 50, 40, RED);
+}
+void DrawChangeOrientationMessage()
+{
+    DrawText("RMB", 550, 200, 20, BLUE);
+    DrawText(" - to change ship orientation" , 600,200,20, DARKGRAY);
 }

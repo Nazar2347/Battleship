@@ -23,6 +23,7 @@ void HumanPlayer::placeShips()
 		BeginDrawing();
 		ClearBackground(RAYWHITE);
 		DrawInitializationMessage();
+		DrawChangeOrientationMessage();
 
 		tempBoard.drawPlayerGrid();
 		placedShips.DrawShips(m_board.getShips());

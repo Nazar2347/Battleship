@@ -13,3 +13,4 @@ void DrawWinMessage();
 void DrawLoseMessage();
 void DrawInitializationMessage();
 void DrawFightMessage();
+void DrawChangeOrientationMessage();
