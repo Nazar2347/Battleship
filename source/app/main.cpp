@@ -30,8 +30,6 @@
 #include "GameRules.h"
 #include "GridRender.h"
 #include "ShipRender.h"
-#include "Board.h"
-#include "Ship.h"
 #include "AIPlayer.h"
 #include "HumanPlayer.h"
 #include "VisualConfigs.h"
@@ -55,10 +53,7 @@ int main(void)
 
     // Main game loop
     while (!WindowShouldClose())    // Detect window close button or ESC key
-    {
-        DrawFightMessage();
-     
-        
+    {   
         // Draw
         //----------------------------------------------------------------------------------
         BeginDrawing();
