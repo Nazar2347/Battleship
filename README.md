@@ -5,3 +5,6 @@ It's my third small game project, where this time I used newly obtained skills s
 - GoF Patterns,
 - Algorithms and Data Structures,
 - and will be fully deployed into Git.
+
+To Play the game you can simply open  MainExecutable.exe in : Battleship\install\bin\MainExecutable.exe
+Or you can install on your computer using BattleShip-0.1.1-win64.exe 
