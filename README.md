@@ -9,15 +9,23 @@ Includes core game logic, interactive UI, and robust unit tests using Catch2
 - 🧪 Unit tests with Catch2
 - 🧱 Modular OOP structure: Board, Player, Ship, Renderer, GameRules
 - 📁 Clean folder structure and CMake build automation
-  
-  [Ship placement](assets/GIFs/Fight.gif)
-  
-## How to run the game
-To Play the game you can simply open: 
-MainExecutable.exe in : Battleship\install\bin\MainExecutable.exe
+    ## Manual Ship placement mechanic
+  ![Ship placement](assets/GIFs/Ship_placement.gif)
 
-Or you can install on your computer using: 
-BattleShip-0.1.1-win64.exe 
+  ## Core Fight Gameplay
+  ![Fight](assets/GIFs/Fight.gif)
+
+  ![Win](assets/GIFs/Win.gif)
+  
+## How to run the game 🕹
+1) You can install on your computer using: 
+BattleShip-0.1.1-win64.exe
+
+2) Or you can simply clone and run cmake build commands:
+ - cmake -S. -B ./build
+ - cmake --build ./build
+ - open a MainExecutable.exe in : Battleship\install\bin\MainExecutable.exe
+
 ##
 ## How to run the tests 🧪
 1. Clone repository, open command console in downloaded repo
@@ -28,8 +36,8 @@ BattleShip-0.1.1-win64.exe
  ### OR 
 You can see tests are always running after succesfull build and compilation of the program! 
 ##
-It's my third small game project, where this time I used newly obtained skills such as:
+🤓☝️ It's my third small game project, where this time I used newly obtained skills such as:
 - Raylib:	Rendering and UI
-- Catch2:	Unit testing
-- CMake:	Build system(Windows)
-- Git:	Version control
+- Catch2:	Unit testing for core methods of the game
+- CMake:	Automation for building the program together (Windows)
+- Git:	From the start to final steps the program files had been tracking and deployed using Git Version control
