@@ -47,8 +47,15 @@ void DrawMissMark(const Coordinate& coord, Vector2 boardOrigin)
 
     float centerX = cellPos.x + CELL_SIZE / 2;
     float centerY = cellPos.y + CELL_SIZE / 2;
-
-    DrawCircle(centerX, centerY, CELL_SIZE / 6, BLUE);
+    if (boardOrigin.x == GRID_OFFSET_X &&
+        boardOrigin.y == GRID_OFFSET_Y)
+    {
+        DrawCircle(centerX, centerY, CELL_SIZE / 6, RED); // draw miss mark of an enemy 
+    }
+    else
+    {
+        DrawCircle(centerX, centerY, CELL_SIZE / 6, BLUE);
+    }
 }
 void DrawWinMessage()
 {
