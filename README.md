@@ -10,6 +10,8 @@ Includes core game logic, interactive UI, and robust unit tests using Catch2
 - 🧱 Modular OOP structure: Board, Player, Ship, Renderer, GameRules
 - 📁 Clean folder structure and CMake build automation
   
+  [Ship placement](assets/GIFs/Fight.gif)
+  
 ## How to run the game
 To Play the game you can simply open: 
 MainExecutable.exe in : Battleship\install\bin\MainExecutable.exe
