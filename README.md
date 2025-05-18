@@ -20,8 +20,8 @@ Includes core game logic, interactive UI, and robust unit tests using Catch2
 ## How to run the game 🕹
 1) You can install on your computer using: 
 BattleShip-0.1.1-win64.exe
-
-2) Or you can simply clone and run cmake build commands:
+#### OR
+2) You can simply clone and run cmake build commands:
  - cmake -S. -B ./build
  - cmake --build ./build
  - open a MainExecutable.exe in : Battleship\install\bin\MainExecutable.exe
