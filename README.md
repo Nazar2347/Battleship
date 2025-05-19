@@ -36,6 +36,31 @@ BattleShip-0.1.1-win64.exe
  ### OR 
 You can see tests are always running after succesfull build and compilation of the program! 
 ##
+## Project structure📂:
+
+Battleship/
+
+├── assets            # Materials for README.md
+
+├── external          #External libraries source files  
+
+├── instal/       # Game Instalation package
+
+#### ├── source/
+
+│   ├── core/         # Game logic (Board, Ship, Player)
+
+│   ├── render/       # Raylib rendering code
+
+│   └── app/      # Game entry point
+
+#### ├── tests/            # Catch2 unit tests
+
+├── CMakeLists.txt    # Build configuration
+
+└── README.md         # This file
+
+##
 🤓☝️ It's my third small game project, where this time I used newly obtained skills such as:
 - Raylib:	Rendering and UI
 - Catch2:	Unit testing for core methods of the game
