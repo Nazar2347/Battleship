@@ -1,6 +1,6 @@
 # Battleship Game (C++ / Raylib)
 A mine representaion on the classic Battleship game, built in C++ with Raylib for rendering and CMake for build automation.
-Includes core game logic, interactive UI, and robust unit tests using Catch2
+Includes core game logic, interactive UI,  unit tests using Catch2
 
 # Features
 - 🎮 Two-player turn-based gameplay: Human vs AI
@@ -61,7 +61,7 @@ Battleship/
 └── README.md         # This file
 
 ##
-🤓☝️ It's my third small game project, where this time I used newly obtained skills such as:
+🤓☝️ It's my second small game project, where this time I used newly obtained skills such as:
 - Raylib:	Rendering and UI
 - Catch2:	Unit testing for core methods of the game
 - CMake:	Automation for building the program together (Windows)
